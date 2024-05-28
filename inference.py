@@ -10,6 +10,8 @@ from utils.model_decoders import decode_predictions, decode_padded_predictions
 # but I recommend that you hardcode your characters at evaluation
 classes = [
     "∅",
+    ".",
+    "0",
     "1",
     "2",
     "3",
@@ -18,33 +20,7 @@ classes = [
     "6",
     "7",
     "8",
-    "9",
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
+    "9"
 ]
 
 
@@ -78,7 +54,7 @@ def inference(image_path):
 
 if __name__ == "__main__":
     # Setup model and load weights
-    model = CRNN(dims=256, num_chars=35, use_attention=True, use_ctc=True)
+    model = CRNN(dims=256, num_chars=11, use_attention=True, use_ctc=True)
     device = torch.device("cuda")
     model.to(device)
     model.load_state_dict(torch.load("./logs/crnn.pth"))
