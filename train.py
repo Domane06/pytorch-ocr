@@ -98,7 +98,7 @@ def run_training(cfg):
         accuracy = metrics.accuracy_score(test_original_targets, valid_captcha_preds)
         accuracy_data.append(accuracy)
 
-        if accuracy > best_acc:
+        if accuracy >= best_acc:
             best_acc = accuracy
             logger.info(f"New best accuracy achieved at epoch {epoch}. Best accuracy now is: {best_acc}")
             best_model_wts = copy.deepcopy(model.state_dict())
